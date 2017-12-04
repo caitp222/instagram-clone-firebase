@@ -3,6 +3,19 @@
 # dependencies
 /node_modules
 
+# firebase
+/functions
+/build
+.firebaserc
+firebase.json
+database.rules.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+
+package-lock.json
+yarn.lock
+
 # testing
 /coverage
 
