@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount = () => {
     const messagesRef = database.ref('images')
     messagesRef.on('value', (data) => {
-      const photos = Object.values(data.val())
+      const photos = Object.values(data.val()).reverse()
       this.setState({ photos: photos })
     })
   }
