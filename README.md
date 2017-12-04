@@ -1,1 +1,1 @@
-* Instagram Clone Built using Firebase
+# Instagram Clone Built using Firebase
