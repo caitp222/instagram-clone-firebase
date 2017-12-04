@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { fire, database } from './firebase'
 import PhotoUpload from './components/PhotoUpload'
+import {
+  Card,
+  CardTitle
+} from 'react-materialize'
 import './App.css';
 
 class App extends Component {
@@ -37,9 +41,18 @@ class App extends Component {
     return (
       <div className="App">
         <PhotoUpload saveImage={ this.saveImage } />
-        { this.state.photos.map( image => {
-          return <img src={image} alt="Image" height="100" /> })}
+        <div className="container">
+        {
+          this.state.photos.map( image => {
+            return <Card header={<CardTitle reveal image={image} waves='light'/>}
+		          title="Card Title"
+		          reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
+	            <p><a href="#">This is a link</a></p>
+              </Card>
+          })
+        }
       </div>
+    </div>
     );
   }
 }
