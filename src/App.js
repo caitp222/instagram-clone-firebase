@@ -34,7 +34,7 @@ class App extends Component {
     reader.onload = () => {
       this.storage = fire.storage
       database.ref('images').push(reader.result).then( response => {
-      console.log(response)
+      document.querySelector('form').reset()
     })
     }
   }
@@ -43,10 +43,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Instagram Clone</h1>
-        <PhotoUpload saveImage={ this.saveImage } />
-        {/* <Navbar brand="Caitlin's Instagram Clone" center> */}
-        {/* </Navbar> */}
         <div className="container">
+          <PhotoUpload saveImage={ this.saveImage } />
         {
           this.state.photos.map( image => {
             return <Card header={<CardTitle reveal image={image} waves='light'/>}

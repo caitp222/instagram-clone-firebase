@@ -9,8 +9,8 @@ class PhotoUpload extends Component {
   render() {
     return(
       <div className="custom-file-upload">
-        <form onSubmit={ this.props.saveImage }>
-          <input type="file" id="file" name="myfiles[]" multiple/>
+        <form onSubmit={ this.props.saveImage } width="500">
+            <input type="file" id="file"/>
           <button type="submit">Upload</button>
         </form>
       </div>

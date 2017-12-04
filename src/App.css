@@ -17,6 +17,11 @@
 h1 {
   text-decoration-color: black;
   font-style: oblique;
-  font-family: Apple Chancery;
+  font-size: 600%;
+  font-family: 'Snell Roundhand';
+  margin-bottom: 3%;
+}
+
+form {
   margin-bottom: 3%;
 }
