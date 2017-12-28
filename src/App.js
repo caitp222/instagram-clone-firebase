@@ -5,6 +5,7 @@ import SignUpForm from './components/SignUpForm'
 import {
   Card,
   CardTitle,
+  Button
 } from 'react-materialize'
 import './App.css';
 
@@ -26,6 +27,10 @@ class App extends Component {
     })
   }
 
+  logOut = () => {
+    fire.auth().signOut()
+  }
+
   handleTextInput = (event) => {
     this.setState({ newPhotoDescription: event.target.value })
   }
@@ -39,28 +44,37 @@ class App extends Component {
     reader.onload = () => {
       this.storage = fire.storage
       database.ref('images').push({image: reader.result, description: description}).then( response => {
-      document.querySelector('form').reset()
-    })
+        document.querySelector('form').reset()
+      })
     }
   }
 
   render() {
-    return (
-      <div className="App">
-        <SignUpForm />
-        {/* <h1>Instagram Clone</h1>
-        <div className="container">
+    const user = fire.auth().currentUser;
+    if(user) {
+      return (
+        <div className="App">
+          <h1>Instagram Clone</h1>
+          <Button type="submit" waves='light' onClick={ this.logOut }>Log Out</Button>
+          <div className="container">
           <PhotoUpload saveImage={ this.saveImage } handleTextInput={ this.handleTextInput } />
-        {
+          {
           this.state.photos.map( image => {
             return <Card header={<CardTitle reveal image={ image.image } waves='light'/>}
-		          title={ image.description }>
-              </Card>
+              title={ image.description }>
+            </Card>
           })
-        }
-      </div> */}
-    </div>
-    );
+          }
+          </div>
+        </div>
+      );
+      } else {
+          return(
+            <div className="App">
+              <SignUpForm />
+            </div>
+          )
+      }
   }
 }
 

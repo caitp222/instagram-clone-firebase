@@ -4,7 +4,7 @@ import {
   Input,
   Button
 } from 'react-materialize';
-import { fire, database } from '../firebase'
+import { fire } from '../firebase'
 
 class SignUpForm extends Component {
   constructor() {
