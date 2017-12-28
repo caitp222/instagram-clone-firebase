@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fire, database } from './firebase'
 import PhotoUpload from './components/PhotoUpload'
 import SignUpForm from './components/SignUpForm'
+import LoginForm from './components/LogInForm'
 import {
   Card,
   CardTitle,
@@ -71,7 +72,7 @@ class App extends Component {
       } else {
           return(
             <div className="App">
-              <SignUpForm />
+              <LoginForm />
             </div>
           )
       }
