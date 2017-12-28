@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fire, database } from './firebase'
 import PhotoUpload from './components/PhotoUpload'
+import SignUpForm from './components/SignUpForm'
 import {
   Card,
   CardTitle,
@@ -46,18 +47,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Instagram Clone</h1>
+        <SignUpForm />
+        {/* <h1>Instagram Clone</h1>
         <div className="container">
           <PhotoUpload saveImage={ this.saveImage } handleTextInput={ this.handleTextInput } />
         {
           this.state.photos.map( image => {
             return <Card header={<CardTitle reveal image={ image.image } waves='light'/>}
-		          title={ image.description }
-		          reveal={<p>Here is some more information about this product that is only revealed once clicked on.</p>}>
+		          title={ image.description }>
               </Card>
           })
         }
-      </div>
+      </div> */}
     </div>
     );
   }
